@@ -12,17 +12,17 @@ jobs:
           elixir-version: '1.14.2'
   build:
     runs-on: ubuntu-latest
-    needs: setup-elixir
+    needs: [setup-elixir]
     steps:
       - name: get deps
-      run: mix deps.get
+        run: mix deps.get
 
   test:
     runs-on: ubuntu-latest
-    needs: build
+    needs: [build]
     steps:
       - name: run ExUnit
-      run: mix test
+        run: mix test
             
 
     
