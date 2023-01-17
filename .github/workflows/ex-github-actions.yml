@@ -16,16 +16,18 @@ jobs:
         if: failure()
         needs: setup-elixir
         steps:
-            run: ps -wlT
-            run: exit 0
+            - run: ps -wlT
+            - run: exit 0
 
     build:
         runs-on: ubuntu-latest
         if: success()
         needs: setup-elixir
-        steps:
+        steps: 
             name: get dependencies
             - run: mix deps.get
+            if: failure()
+            - run: echo 'failed to build sources because of dependencies'
     
     test:
         runs-on: ubuntu-latest
@@ -33,4 +35,4 @@ jobs:
         if: success()
         steps:
             name: run ExUnit
-            run: mix test
+            - run: mix test
