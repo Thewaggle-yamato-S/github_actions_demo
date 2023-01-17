@@ -1,21 +1,20 @@
 name: learn-github-actions
 on: [push]
 jobs:
-
-    setup-elixir:
-        runs-on: ubuntu-latest
-        steps:
-          - name: setup elixir
-            uses: actions/checkout@v3
-            uses: actions/setup-elixir@v1
-              with:
-                otp-version: '25'
-                elixir-version: '1.14.2'
-          - name: fail to setup
-            if: failure()
-            run: |
-                ps -wlT
-                exit 0
+  setup-elixir:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup elixir
+        uses: actions/checkout@v3
+        uses: actions/setup-elixir@v1
+          with:
+            otp-version: '25'
+            elixir-version: '1.14.2'
+      - name: fail to setup
+        if: failure()
+        run: |
+            ps -wlT
+            exit 0
             
 
     
