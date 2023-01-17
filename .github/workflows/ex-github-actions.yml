@@ -7,7 +7,7 @@ jobs:
       - name: setup elixir
         uses: actions/checkout@v3
         uses: actions/setup-elixir@v1
-          with:
+          with: 
             otp-version: '25'
             elixir-version: '1.14.2'
       - name: fail to setup
