@@ -5,19 +5,17 @@ jobs:
     setup-elixir:
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v3
-          - uses: actions/setup-elixir@v1
+          uses: actions/checkout@v3
+          uses: actions/setup-elixir@v1
             with:
               otp-version: '25'
               elixir-version: '1.14.2'
-          - if: failure()
-          - run: exit 0
 
     failed to setup:
         runs-on: ubuntu-latest
+        if: failure()
         needs: setup-elixir
         steps:
-            if: failure()
             run: ps -wlT
             run: exit 0
 
@@ -28,7 +26,6 @@ jobs:
         steps:
             name: get dependencies
             run: mix deps.get
-            run: exit 1
     
     test:
         runs-on: ubuntu-latest
