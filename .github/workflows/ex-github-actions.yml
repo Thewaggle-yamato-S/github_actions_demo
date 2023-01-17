@@ -10,8 +10,8 @@ jobs:
             with:
               otp-version: '25'
               elixir-version: '1.14.2'
-            if: failure()
-            run: exit 0
+          - if: failure()
+          - run: exit 0
 
     failed to setup:
         runs-on: ubuntu-latest
