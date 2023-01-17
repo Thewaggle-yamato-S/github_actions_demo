@@ -6,15 +6,20 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: setup elixir
-        uses: actions/setup-elixir@v1
+        uses: erlef/setup-elixir@v1
         with: 
           otp-version: '25'
           elixir-version: '1.14.2'
-      - name: fail to setup
-        if: failure()
-        run: |
-            ps -wlT
-            exit 0
+  build:
+    runs-on: ubuntu-latest
+    needs: setup-elixir
+    steps:
+      run: mix deps.get
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    run: mix test
             
 
     
