@@ -5,8 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-elixir@v3
         with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
+          otp-version: '25'
+          elixir-version: '1.14.2'
+      - run: mix deps.get
+      - run: mix test
