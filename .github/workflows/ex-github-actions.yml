@@ -10,9 +10,8 @@ jobs:
         with: 
           otp-version: '25'
           elixir-version: '1.14.2'
-      - run: cd ex_github_actions
       - run: mix deps.get
       - run: mix test
-      - run: exit 1
+
 
     
