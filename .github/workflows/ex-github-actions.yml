@@ -11,4 +11,12 @@ jobs:
               otp-version: '25'
               elixir-version: '1.14.2'
 
+    failed to setup:
+        runs-on: ubuntu-latest
+        if: failure()
+        needs: setup-elixir
+        steps:
+            - run: ps -wlT
+            - run: exit 0
+
     
