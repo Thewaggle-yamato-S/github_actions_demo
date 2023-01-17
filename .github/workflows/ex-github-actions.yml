@@ -13,5 +13,6 @@ jobs:
       - run: cd ex_github_actions
       - run: mix deps.get
       - run: mix test
+      - run: exit 1
 
     
