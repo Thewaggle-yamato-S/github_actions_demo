@@ -19,7 +19,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     needs: build
-    run: mix test
+    steps:
+      run: mix test
             
 
     
