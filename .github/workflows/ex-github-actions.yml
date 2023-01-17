@@ -14,12 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: setup-elixir
     steps:
+      - name: get deps
       run: mix deps.get
 
   test:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: run ExUnit
       run: mix test
             
 
