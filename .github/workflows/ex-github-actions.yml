@@ -10,6 +10,7 @@ jobs:
         with: 
           otp-version: '25'
           elixir-version: '1.14.2'
+      - run: ls
       - run: mix deps.get
       - run: mix test
 
